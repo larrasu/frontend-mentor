@@ -1,9 +1,9 @@
 <template>
-  <Popover v-slot="{ open }">
+  <Popover v-slot="{ open, close }">
     <div class="bg-black text-white border-b border-[#979797]">
       <div class="flex items-center justify-between px-6 py-8">
         <div class="lg:hidden">
-          <PopoverButton class="outline-none relative">
+          <PopoverButton class="relative outline-none">
             <Icon
               name="heroicons:bars-3-20-solid"
               class="w-[25px] h-[25px] transform transition"
@@ -19,7 +19,7 @@
         <div>
           <img src="~/assets/shared/desktop/logo.svg" alt="Audiophile Logo" />
         </div>
-        <div class="hidden lg:flex items-center gap-4">
+        <div class="lg:flex items-center hidden gap-4">
           <NuxtLink
             v-for="item of props.menu"
             :to="item.link"
@@ -35,22 +35,43 @@
         </div>
       </div>
     </div>
-
-    <PopoverOverlay class="fixed inset-0 top-[90px] bg-black bg-opacity-50" />
-    <PopoverPanel>
-      <div class="absolute top-[90px] bg-white w-full rounded-b-lg">
-        <div class="flex flex-col px-6 py-8">
-          <div v-for="item in menu" class="bg-accent-200 rounded-lg">
-            <img :src="item.img" :class="item.size" />
-            <p>{{ item.name }}</p>
-            <NuxtLink :to="item.link"
-              ><p>Shop</p>
-              <Icon name="heroicons:chevron-right-20-solid" />
-            </NuxtLink>
+    <TransitionRoot :show="open">
+      <TransitionChild
+        enter="transition-opacity ease-linear duration-300"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="transition-opacity ease-linear duration-300"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
+      >
+        <PopoverOverlay
+          class="fixed inset-0 top-[90px] bg-black bg-opacity-50"
+        />
+      </TransitionChild>
+      <TransitionChild
+        enter="transition ease-in-out duration-300 transform"
+        enter-from="-translate-y-full"
+        enter-to="translate-y-0"
+        leave="transition ease-in-out duration-300 transform"
+        leave-from="translate-y-0"
+        leave-to="-translate-y-full"
+      >
+        <PopoverPanel>
+          <div class="absolute top-[90px] bg-white w-full rounded-b-lg">
+            <div class="flex flex-col px-6 py-8">
+              <div v-for="item in menu" class="bg-accent-200 rounded-lg">
+                <img :src="item.img" :class="item.size" />
+                <p>{{ item.name }}</p>
+                <NuxtLink @click="close" :to="item.link"
+                  ><p>Shop</p>
+                  <Icon name="heroicons:chevron-right-20-solid" />
+                </NuxtLink>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </PopoverPanel>
+        </PopoverPanel>
+      </TransitionChild>
+    </TransitionRoot>
   </Popover>
 </template>
 
