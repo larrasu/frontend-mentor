@@ -48,8 +48,5 @@ module.exports = {
       sans: ["Jost", "sans-serif"],
     },
   },
-  daisyui: {
-    styled: false,
-  },
-  plugins: [require("daisyui")],
+  plugins: [require("@tailwindcss/forms")],
 };
