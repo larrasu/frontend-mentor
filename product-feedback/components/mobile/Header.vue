@@ -1,7 +1,7 @@
 <template>
   <Popover v-slot="{ open }">
     <div
-      class="bg-mobile-header bg-no-repeat bg-cover text-white sticky top-0 z-30"
+      class="bg-mobile-header sticky top-0 z-30 text-white bg-no-repeat bg-cover"
     >
       <div class="flex items-center justify-between px-6 py-4">
         <div>
@@ -29,7 +29,7 @@
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <PopoverOverlay class="fixed inset-0 top-0 bg-black opacity-50 z-10" />
+        <PopoverOverlay class="fixed inset-0 top-0 z-10 bg-black opacity-50" />
       </TransitionChild>
 
       <TransitionChild
@@ -46,10 +46,10 @@
       </TransitionChild>
     </TransitionRoot>
 
-    <div class="bg-tertiary-200 text-white">
+    <div class="bg-tertiary-200 text-white text-[13px]">
       <div class="flex items-center justify-between px-6 py-4">
         <Menu as="div" class="relative" v-slot="{ open }">
-          <MenuButton class="btn p-0 gap-2">
+          <MenuButton class="btn gap-2 p-0">
             <p>
               Sort by : <b>{{ currentSortBy }}</b>
             </p>
@@ -75,7 +75,7 @@
                 <MenuItem v-for="option in sortOptions" :key="option">
                   <button
                     @click="mainStore.setCurrentSortBy(option)"
-                    class="flex items-center justify-between text-left px-6 py-3 hover:text-primary-200"
+                    class="hover:text-primary-200 flex items-center justify-between px-6 py-3 text-left"
                     :class="{
                       'text-primary-200': option === currentSortBy,
                     }"
@@ -92,6 +92,10 @@
             </MenuItems>
           </TransitionRoot>
         </Menu>
+
+        <button class="btn-primary px-4 py-[11px] font-bold">
+          <p>+ Add Feedback</p>
+        </button>
       </div>
     </div>
   </Popover>

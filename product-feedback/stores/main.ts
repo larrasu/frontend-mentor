@@ -1,5 +1,5 @@
 import data from "~~/src/data.json";
-import { Feedback } from "types";
+import { Feedback, User } from "types";
 import { useUserStore } from "./user";
 
 export const useMainStore = defineStore("main", {
@@ -46,7 +46,7 @@ export const useMainStore = defineStore("main", {
         this.filteredFeedbacks = this.feedbacks;
       } else {
         this.filteredFeedbacks = this.feedbacks.filter(
-          (feedback) => feedback.category === this.currentCategory
+          (feedback) => feedback.category === this.currentCategory.toLowerCase()
         );
       }
     },
@@ -73,6 +73,24 @@ export const useMainStore = defineStore("main", {
     setCurrentSortBy(sortBy: string): void {
       this.currentSortBy = sortBy;
       this.sortFeedbacks();
+    },
+
+    // Upvote feedback
+    upvoteFeedback(id: number, user: string): void {
+      const feedback = this.feedbacks.find((feedback) => feedback.id === id);
+      if (feedback) {
+        if (feedback.upvotedBy.includes(user)) {
+          feedback.upvotedBy = feedback.upvotedBy.filter(
+            (upvotedBy) => upvotedBy !== user
+          );
+          feedback.upvotes--;
+        } else {
+          feedback.upvotedBy.push(user);
+          feedback.upvotes++;
+        }
+        this.filterFeedbacks();
+        this.sortFeedbacks();
+      }
     },
 
     // Add feedback
