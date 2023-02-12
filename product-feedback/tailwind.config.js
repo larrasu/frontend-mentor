@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   // content: [],
   theme: {
@@ -10,6 +12,9 @@ module.exports = {
           "url('~/assets/suggestions/tablet/background-header.png')",
         "desktop-header":
           "url('~/assets/suggestions/desktop/background-header.png')",
+      },
+      borderRadius: {
+        base: "10px",
       },
       boxShadow: {
         base: "0px 10px 40px -7px rgba(55, 63, 104, 0.350492)",
@@ -48,5 +53,67 @@ module.exports = {
       sans: ["Jost", "sans-serif"],
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    plugin(function ({ addBase, addComponents, theme }) {
+      addBase({});
+      addComponents({
+        ".btn": {
+          borderRadius: theme("borderRadius.base"),
+          padding: "6px 16px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "all 0.3s ease-in-out",
+        },
+        ".btn-primary": {
+          "@apply btn": "",
+          backgroundColor: theme("colors.primary.200"),
+          color: theme("colors.base.100"),
+          "&:hover": {
+            backgroundColor: theme("colors.primary.100"),
+          },
+        },
+        ".btn-secondary": {
+          "@apply btn": "",
+          backgroundColor: theme("colors.secondary.200"),
+          color: theme("colors.base.100"),
+          "&:hover": {
+            backgroundColor: theme("colors.secondary.100"),
+          },
+        },
+        ".btn-tertiary": {
+          "@apply btn": "",
+          backgroundColor: theme("colors.tertiary.200"),
+          color: theme("colors.base.100"),
+          "&:hover": {
+            backgroundColor: theme("colors.tertiary.100"),
+          },
+        },
+        ".btn-error": {
+          "@apply btn": "",
+          backgroundColor: theme("colors.error.200"),
+          color: theme("colors.base.100"),
+          "&:hover": {
+            backgroundColor: theme("colors.error.100"),
+          },
+        },
+        ".btn-plain": {
+          "@apply btn": "",
+          backgroundColor: theme("colors.base.200"),
+          color: theme("colors.accent.200"),
+          "&:first-child": {
+            color: theme("colors.secondary.200"),
+          },
+          "&:hover": {
+            backgroundColor: theme("colors.base.300"),
+          },
+          "&:focus,&.active": {
+            backgroundColor: theme("colors.secondary.200"),
+            color: theme("colors.base.100"),
+          },
+        },
+      });
+    }),
+  ],
 };
