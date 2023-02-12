@@ -16,13 +16,17 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
-    "@vueuse/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+    "nuxt-headlessui",
     "nuxt-icon",
   ],
   typescript: {
     shim: false,
   },
   // Module configs
+  headlessui: {
+    prefix: "",
+  },
   googleFonts: {
     families: {
       Jost: [500, 600, 700],
@@ -30,5 +34,8 @@ export default defineNuxtConfig({
   },
   pinia: {
     autoImports: ["defineStore", "storeToRefs"],
+  },
+  piniaPersistedstate: {
+    storage: "localStorage",
   },
 });
