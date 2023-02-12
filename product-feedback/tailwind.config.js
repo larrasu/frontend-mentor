@@ -63,8 +63,7 @@ module.exports = {
           padding: "6px 16px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          transition: "all 0.3s ease-in-out",
+          "@apply transition": "",
         },
         ".btn-primary": {
           "@apply btn": "",
@@ -102,15 +101,23 @@ module.exports = {
           "@apply btn": "",
           backgroundColor: theme("colors.base.200"),
           color: theme("colors.accent.200"),
-          "&:first-child": {
-            color: theme("colors.secondary.200"),
-          },
           "&:hover": {
             backgroundColor: theme("colors.base.300"),
           },
           "&:focus,&.active": {
             backgroundColor: theme("colors.secondary.200"),
             color: theme("colors.base.100"),
+          },
+          "> icon:first-child, > p:first-child": {
+            color: theme("colors.secondary.200"),
+          },
+        },
+
+        ".link": {
+          textDecoration: "underline",
+          color: theme("colors.secondary.200"),
+          "&:hover": {
+            color: theme("colors.secondary.100"),
           },
         },
       });
