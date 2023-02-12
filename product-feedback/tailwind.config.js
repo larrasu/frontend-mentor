@@ -104,12 +104,15 @@ module.exports = {
           "&:hover": {
             backgroundColor: theme("colors.base.300"),
           },
-          "&:focus,&.active": {
+          "&.active": {
             backgroundColor: theme("colors.secondary.200"),
             color: theme("colors.base.100"),
           },
           "> icon:first-child, > p:first-child": {
             color: theme("colors.secondary.200"),
+            "&:hover": {
+              color: theme("colors.base.100"),
+            },
           },
         },
 
