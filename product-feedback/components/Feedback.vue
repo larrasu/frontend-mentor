@@ -4,7 +4,7 @@
   >
     <div class="order-2">
       <!-- TODO: upvote -->
-      <button @click="upvote" class="btn-plain font-bold">
+      <button @click="upvote" class="btn-plain gap-1 font-bold">
         <Icon name="heroicons:chevron-up-20-solid" />
         <p>{{ feedback.upvotes }}</p>
       </button>
@@ -14,18 +14,19 @@
         {{ feedback.title }}
       </h3>
       <p class="text-accent-100">{{ feedback.description }}</p>
-      <div>
-        <span
-          class="text-secondary-200 bg-base-200 rounded-base px-4 py-[6px]"
-          >{{ category }}</span
-        >
-      </div>
+      <p>
+        <span class="text-secondary-200 bg-base-200 rounded-base px-4 py-[6px]">
+          {{ category }}
+        </span>
+      </p>
     </div>
     <div class="flex items-center order-last gap-2 ml-auto font-bold">
-      <Icon
-        name="heroicons:chat-bubble-oval-left-20-solid"
-        class="text-base-300 w-5 h-5"
-      />
+      <p>
+        <Icon
+          name="heroicons:chat-bubble-oval-left-20-solid"
+          class="text-base-300 w-5 h-5"
+        />
+      </p>
       <p>{{ feedback.comments ? feedback.comments.length : 0 }}</p>
     </div>
   </div>
@@ -36,7 +37,7 @@ const props = defineProps({
   feedback: Object,
 });
 
-const emit = defineEmits(["upvote"]);
+const emit = defineEmits(["upvote", "update:feedback"]);
 
 const category =
   props.feedback.category.charAt(0).toUpperCase() +
