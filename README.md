@@ -1,7 +1,5 @@
-# Frontend Mentor Solutions
-
-## About
-This repo is where all of my solutions will go.
+<h1 align="center">Frontend Mentor Solutions</h1>
+<p align="center">A repo for my solutions to Frontend Mentor challenges.</p>
 
 ## License
 [MIT License](./LICENSE)
