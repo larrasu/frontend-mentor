@@ -1,10 +1,15 @@
 <template>
-  <div class="flex">
+  <div class="lg:flex-row md:mx-10 md:mt-14 flex flex-col">
     <Sidebar />
-    <section>
+    <section class="md:mt-10">
       <Header />
-      <main>
-        <RequestCard v-for="request of requests" :request="request" />
+      <main class="md:mt-6 grid gap-4">
+        <RequestCard
+          v-for="request of sortedRequests"
+          :key="request.id"
+          :request="request"
+          :is-link="true"
+        />
       </main>
     </section>
   </div>
@@ -12,9 +17,9 @@
 
 <script setup>
 const requestStore = useRequestStore();
-const { requests } = storeToRefs(requestStore);
+const { requests, sortedRequests } = storeToRefs(requestStore);
 
-await useAsyncData(async () => {
-  await requestStore.fetchRequests();
-});
+if (requests.value.length) {
+  requestStore.fetchRequests();
+}
 </script>

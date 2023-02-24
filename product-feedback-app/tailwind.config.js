@@ -50,13 +50,16 @@ module.exports = {
           borderRadius: theme("borderRadius.base"),
           color: theme("colors.base-100"),
           cursor: "pointer",
+          fontWeight: 700,
           padding: "12px 24px",
           "&:disabled": {
             cursor: "not-allowed",
           },
-        },
-        ".btn-sm": {
-          padding: "6px 12px",
+          "&.btn-sm": {
+            padding: "6px 16px",
+            fontSize: "13px",
+            fontWeight: 600,
+          },
         },
         ".btn-primary": {
           "@apply btn": "",
@@ -112,6 +115,10 @@ module.exports = {
             backgroundColor: theme("colors.secondary"),
             color: theme("colors.base-100"),
           },
+          "&.active": {
+            backgroundColor: theme("colors.secondary"),
+            color: theme("colors.base-100"),
+          },
         },
         // Link
         ".link": {
@@ -121,12 +128,15 @@ module.exports = {
         },
         // Badges
         ".badge": {
-          padding: "6px 12px",
+          borderRadius: "10px",
+          fontSize: "13px",
+          fontWeight: 600,
+          padding: "6px 16px",
         },
         ".badge-plain": {
           "@apply badge": "",
           backgroundColor: theme("colors.base-300"),
-          color: theme("colors.dark-200"),
+          color: theme("colors.secondary"),
         },
       });
       addUtilities({
