@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-      Jost: [400, 600, 700],
+      Jost: [400, 500, 600, 700],
     },
   },
   nuxtSvgIcons: {
