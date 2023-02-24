@@ -8,10 +8,12 @@ export default defineNuxtConfig({
       title: "Frontend Mentor | Product Feedback App",
       link: [{ rel: "icon", type: "image/png", href: "/favicon-32x32.png" }],
     },
+    pageTransition: {
+      name: "fade",
+      mode: "out-in",
+    },
   },
-  imports: {
-    dirs: ["stores"],
-  },
+  imports: { dirs: ["stores"] },
   modules: [
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
@@ -20,16 +22,13 @@ export default defineNuxtConfig({
     "nuxt-headlessui",
     "nuxt-icon",
   ],
-  typescript: {
-    shim: false,
-  },
-  // Module configs
+
   headlessui: {
     prefix: "",
   },
   googleFonts: {
     families: {
-      Jost: [500, 600, 700],
+      Jost: [400, 600, 700],
     },
   },
   pinia: {

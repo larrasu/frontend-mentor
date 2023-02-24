@@ -6,5 +6,6 @@ node_modules
 .output
 .env
 dist
-starter-code
+.starter-code
 README-template.md
+preview.jpg

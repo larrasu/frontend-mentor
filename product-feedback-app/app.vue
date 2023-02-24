@@ -1,5 +1,5 @@
 <template>
   <div>
-    <MobileHeader />
+    <NuxtWelcome />
   </div>
 </template>
