@@ -15,6 +15,7 @@
     "@tailwindcss/forms": "^0.5.3",
     "nuxt": "^3.2.2",
     "nuxt-headlessui": "^1.1.1",
-    "nuxt-icon": "^0.3.2"
+    "nuxt-icon": "^0.3.2",
+    "nuxt-svg-icons": "^1.8.0"
   }
 }

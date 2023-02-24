@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     "@pinia-plugin-persistedstate/nuxt",
     "nuxt-headlessui",
     "nuxt-icon",
+    "nuxt-svg-icons",
   ],
 
   headlessui: {
@@ -29,6 +30,11 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Jost: [400, 600, 700],
+    },
+  },
+  nuxtSvgIcons: {
+    svg4vue: {
+      assetsDirName: "assets/icons",
     },
   },
   pinia: {
