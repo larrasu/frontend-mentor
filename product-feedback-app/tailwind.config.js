@@ -111,10 +111,6 @@ module.exports = {
             backgroundColor: theme("colors.base-400"),
             color: theme("colors.dark-200"),
           },
-          "&:focus": {
-            backgroundColor: theme("colors.secondary"),
-            color: theme("colors.base-100"),
-          },
           "&.active": {
             backgroundColor: theme("colors.secondary"),
             color: theme("colors.base-100"),
