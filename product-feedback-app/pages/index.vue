@@ -17,9 +17,12 @@
 
 <script setup>
 const requestStore = useRequestStore();
+const userStore = useUserStore();
 const { requests, sortedRequests } = storeToRefs(requestStore);
 
-if (requests.value.length) {
+if (!requests.value.length) {
   requestStore.fetchRequests();
+  userStore.fetchUsers();
+  userStore.fetchCurrentUser();
 }
 </script>

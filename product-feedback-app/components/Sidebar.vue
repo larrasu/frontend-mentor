@@ -18,11 +18,37 @@
         </button>
       </div>
     </section>
-    <section class="bg-base-100 rounded-base p-6"></section>
+    <section class="bg-base-100 rounded-base p-6">
+      <div class="across">
+        <p class="font-bold text-lg tracking-[-0.25px]">Roadmap</p>
+        <NuxtLink to="/roadmap" class="link text-[13px]">View</NuxtLink>
+      </div>
+      <div class="grid gap-2 mt-5">
+        <div v-for="item of roadmap" class="flex items-center gap-4">
+          <div class="w-2 h-2 rounded-full" :class="item.color"></div>
+          <p>{{ item.label }}</p>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup>
 const requestStore = useRequestStore();
 const { categories, currentCategory } = storeToRefs(requestStore);
+
+const roadmap = [
+  {
+    color: "bg-orange",
+    label: "Planned",
+  },
+  {
+    color: "bg-primary",
+    label: "In-Progress",
+  },
+  {
+    color: "bg-cyan",
+    label: "Live",
+  },
+];
 </script>
