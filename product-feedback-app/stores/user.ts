@@ -9,10 +9,15 @@ export const useUserStore = defineStore({
   actions: {
     async fetchUsers() {
       const { users } = await $fetch("/data.json");
-      this.users = users;
+      this.users = users as User[];
+    },
+    async fetchCurrentUser() {
+      const { currentUser } = await $fetch("/data.json");
+      this.currentUser = currentUser as User;
     },
     switchUser(user: User) {
       this.currentUser = user;
     },
   },
+  persist: true,
 });
