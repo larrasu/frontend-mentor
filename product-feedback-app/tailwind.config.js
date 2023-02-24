@@ -133,7 +133,7 @@ module.exports = {
         ".across": {
           display: "flex",
           alignItems: "center",
-          justifyContent: "between",
+          justifyContent: "space-between",
         },
       });
     }),
