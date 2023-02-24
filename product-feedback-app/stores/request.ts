@@ -21,7 +21,7 @@ export const useRequestStore = defineStore({
         return this.requests;
       } else {
         return this.requests.filter(
-          (request) => request.category === this.currentCategory
+          (request) => request.category === this.currentCategory.toLowerCase()
         );
       }
     },
@@ -52,14 +52,8 @@ export const useRequestStore = defineStore({
       this.currentOption = option;
     },
     async fetchRequests() {
-      const data = await $fetch("/data.json").catch((error) =>
-        console.log("Error fetching requests: ", error)
-      );
-      if (data) {
-        this.requests = (
-          data as { productRequests: Request[] }
-        ).productRequests;
-      }
+      const { productRequests } = await $fetch("/data.json");
+      this.requests = productRequests as Request[];
     },
     createRequest(request: Request) {
       const exists = this.requests.some(
