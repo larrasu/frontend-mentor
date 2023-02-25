@@ -1,10 +1,33 @@
 <template>
   <div>
+    <Popover v-slot="{ open }">
+      <div
+        class="md:hidden bg-mobile-header flex items-center justify-between px-6 py-4 text-white bg-cover"
+      >
+        <div>
+          <p class="font-bold">Frontend Mentor</p>
+          <p>Feedback Board</p>
+        </div>
+        <div>
+          <PopoverButton class="outline-none">
+            <NuxtSvgIcon
+              :name="open ? 'mobile/close' : 'mobile/hamburger'"
+              :use-origin-size="true"
+              class="fill-white"
+            />
+          </PopoverButton>
+        </div>
+      </div>
+
+      <PopoverOverlay class="bg-black/25 absolute inset-0 top-[136px] z-10" />
+      <Drawer />
+    </Popover>
+
     <div
-      class="bg-dark-200 text-base-100 rounded-base flex items-center justify-between px-4 py-4 lg:w-[825px]"
+      class="bg-dark-200 text-base-100 md:rounded-base flex items-center justify-between px-4 py-5 lg:w-[825px]"
     >
       <div class="flex items-center">
-        <div class="flex items-center gap-2">
+        <div class="md:flex items-center hidden gap-2">
           <NuxtSvgIcon
             name="suggestions"
             fill="white"
@@ -12,12 +35,17 @@
           />
           <span>{{ sortedRequests.length }} Suggestions</span>
         </div>
-        <Menu as="div" class="relative">
-          <MenuButton class="btn-dark hover:no-underline space-x-2">
+        <Menu as="div" class="relative" v-slot="{ open }">
+          <MenuButton class="hover:no-underline space-x-2 text-white">
             <span
               >Sort by : <b>{{ currentOption }}</b></span
             >
-            <Icon name="heroicons:chevron-down-20-solid" />
+            <NuxtSvgIcon
+              name="arrow-down"
+              :use-origin-size="true"
+              class="stroke-white transition"
+              :class="{ '-rotate-180': open }"
+            />
           </MenuButton>
           <MenuItems>
             <div
@@ -30,9 +58,11 @@
                   :class="{ 'text-primary': option == currentOption }"
                 >
                   <span>{{ option }}</span>
-                  <Icon
+                  <NuxtSvgIcon
                     v-if="option == currentOption"
-                    name="heroicons:check-20-solid"
+                    name="check"
+                    :use-origin-size="true"
+                    class="stroke-primary fill-none"
                   />
                 </button>
               </MenuItem>
@@ -43,7 +73,7 @@
 
       <div>
         <NuxtLink to="/requests/create" class="btn-primary space-x-2">
-          <Icon name="heroicons:plus-20-solid" />
+          <NuxtSvgIcon name="plus" :use-origin-size="true" />
           <span>Add Feedback</span>
         </NuxtLink>
       </div>
