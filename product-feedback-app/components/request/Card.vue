@@ -48,6 +48,9 @@ const props = defineProps<{
   isLink: boolean;
 }>();
 
+const NuxtLink = resolveComponent("NuxtLink");
+const { request } = toRefs(props);
+
 const requestStore = useRequestStore();
 const userStore = useUserStore();
 const { currentUser } = storeToRefs(userStore);
@@ -58,11 +61,9 @@ const upvoted = computed(() =>
   request.value.upvotesBy.includes(currentUser.value.username)
 );
 
-const NuxtLink = resolveComponent("NuxtLink");
-
-const { request } = toRefs(props);
-
-const category =
-  request.value.category.charAt(0).toUpperCase() +
-  request.value.category.slice(1);
+const category = computed(
+  () =>
+    request.value.category.charAt(0).toUpperCase() +
+    request.value.category.slice(1)
+);
 </script>
