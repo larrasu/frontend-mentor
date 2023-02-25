@@ -17,6 +17,11 @@ export const useRequestStore = defineStore({
     currentOption: "Most Upvotes",
   }),
   getters: {
+    // getRequestById:
+    //   (state) =>
+    //   (id: number): Request | null => {
+    //     return state.requests.find((request) => request.id === id) || null;
+    //   },
     filteredRequests(): Request[] {
       if (this.currentCategory === "All") {
         return this.requests;
@@ -56,22 +61,24 @@ export const useRequestStore = defineStore({
       const { productRequests } = await $fetch("/data.json");
       this.requests = productRequests as Request[];
     },
-    getRequestById(id: number): Request {
-      return this.requests.find((request) => request.id === id) as Request;
+    setCurrentRequest(id: number) {
+      this.request = this.requests.find(
+        (request) => request.id === id
+      ) as Request;
     },
     upvoteRequest(id: number) {
-      const request = this.getRequestById(id);
+      this.setCurrentRequest(id);
       const userStore = useUserStore();
       const currentUser = userStore.currentUser;
 
-      if (request.upvotesBy.includes(currentUser.username)) {
-        request.upvotes -= 1;
-        request.upvotesBy = request.upvotesBy.filter(
+      if (this.request.upvotesBy.includes(currentUser.username)) {
+        this.request.upvotes -= 1;
+        this.request.upvotesBy = this.request.upvotesBy.filter(
           (username) => username !== currentUser.username
         );
       } else {
-        request.upvotes += 1;
-        request.upvotesBy.push(currentUser.username);
+        this.request.upvotes += 1;
+        this.request.upvotesBy.push(currentUser.username);
       }
     },
     createRequest(request: Request) {
