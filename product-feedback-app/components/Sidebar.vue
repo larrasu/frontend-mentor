@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:flex-col flex md:grid md:grid-cols-3 gap-[10px]">
+  <div class="hidden gap-[10px] md:grid md:grid-cols-3 lg:flex-col lg:flex">
     <section
       class="bg-cover md:bg-tablet-header lg:bg-desktop-header rounded-base text-white md:h-[178px] lg:w-[255px] lg:h-[137px] flex flex-col justify-end p-6"
     >
