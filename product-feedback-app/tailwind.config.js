@@ -120,7 +120,9 @@ module.exports = {
         ".link": {
           color: theme("colors.secondary"),
           fontWeight: 600,
-          textDecoration: "underline",
+          "&:hover": {
+            textDecoration: "underline",
+          },
         },
         // Badges
         ".badge": {
