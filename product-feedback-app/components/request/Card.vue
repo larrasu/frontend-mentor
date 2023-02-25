@@ -7,10 +7,11 @@
           class="btn-plain btn-sm group flex flex-col items-center gap-1"
           :class="{ active: upvoted }"
         >
-          <Icon
-            name="heroicons:chevron-up-20-solid"
-            class="text-secondary text-lg"
-            :class="{ 'text-white': upvoted }"
+          <NuxtSvgIcon
+            name="arrow-up"
+            :use-origin-size="true"
+            class="stroke-secondary fill-none"
+            :class="{ 'stroke-white fill-none': upvoted }"
           />
           <span>{{ request.upvotes }}</span>
         </button>
