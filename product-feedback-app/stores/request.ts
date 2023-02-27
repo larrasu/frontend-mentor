@@ -1,4 +1,5 @@
 import { Request } from "~/types";
+import { useUserStore } from "./user";
 
 export const useRequestStore = defineStore({
   id: "request",
@@ -21,7 +22,7 @@ export const useRequestStore = defineStore({
         return this.requests;
       } else {
         return this.requests.filter(
-          (request) => request.category === this.currentCategory
+          (request) => request.category === this.currentCategory.toLowerCase()
         );
       }
     },
@@ -52,13 +53,25 @@ export const useRequestStore = defineStore({
       this.currentOption = option;
     },
     async fetchRequests() {
-      const data = await $fetch("/data.json").catch((error) =>
-        console.log("Error fetching requests: ", error)
-      );
-      if (data) {
-        this.requests = (
-          data as { productRequests: Request[] }
-        ).productRequests;
+      const { productRequests } = await $fetch("/data.json");
+      this.requests = productRequests as Request[];
+    },
+    getRequestById(id: number): Request {
+      return this.requests.find((request) => request.id === id) as Request;
+    },
+    upvoteRequest(id: number) {
+      const request = this.getRequestById(id);
+      const userStore = useUserStore();
+      const currentUser = userStore.currentUser;
+
+      if (request.upvotesBy.includes(currentUser.username)) {
+        request.upvotes -= 1;
+        request.upvotesBy = request.upvotesBy.filter(
+          (username) => username !== currentUser.username
+        );
+      } else {
+        request.upvotes += 1;
+        request.upvotesBy.push(currentUser.username);
       }
     },
     createRequest(request: Request) {

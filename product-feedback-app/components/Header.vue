@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="bg-dark-200 text-base-100 rounded-base flex items-center justify-between px-4 py-4 w-[825px]"
+      class="bg-dark-200 text-base-100 rounded-base flex items-center justify-between px-4 py-4 lg:w-[825px]"
     >
       <div class="flex items-center">
         <div class="flex items-center gap-2">
@@ -10,11 +10,13 @@
             fill="white"
             :use-origin-size="true"
           />
-          <span>{{ requests.length }} Suggestions</span>
+          <span>{{ sortedRequests.length }} Suggestions</span>
         </div>
         <Menu as="div" class="relative">
           <MenuButton class="btn-dark hover:no-underline space-x-2">
-            <span>Sort by : <b>Most Upvotes</b></span>
+            <span
+              >Sort by : <b>{{ currentOption }}</b></span
+            >
             <Icon name="heroicons:chevron-down-20-solid" />
           </MenuButton>
           <MenuItems>
@@ -51,5 +53,6 @@
 
 <script setup>
 const requestStore = useRequestStore();
-const { requests, sortOptions, currentOption } = storeToRefs(requestStore);
+const { sortedRequests, sortOptions, currentOption } =
+  storeToRefs(requestStore);
 </script>
