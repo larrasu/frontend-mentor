@@ -1,0 +1,13 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+*.fig
+design
+style-guide.md
+README-template.md 
+index.html
