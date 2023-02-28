@@ -1,14 +1,14 @@
 ---
 name: Todo
 about: Discuss things to do.
-title: "[Todo]"
+title: "[Todo] "
 labels: todo
 assignees: larrasu
 
 ---
 
-### Description
+### :page_facing_up: Description
 Describe here what you need to do.
 
-### Tasks
+### :pushpin: Tasks
 - [ ] Format in list form.
