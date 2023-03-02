@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "#2BD0D0",
+        "primary-hover": "#9AE3E3",
         secondary: "#4B3F6B",
         tertiary: "#3A3054",
         error: "#F46363",
@@ -25,8 +26,7 @@ module.exports = {
         body: {
           fontSize: "18px",
         },
-      }),
-        addComponents({});
+      });
     }),
   ],
 };
