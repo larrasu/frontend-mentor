@@ -22,12 +22,13 @@
         <div class="mx-auto">
           <ul class="flex items-center gap-6">
             <li v-for="item of socials">
-              <NuxtLink to="/"
-                ><NuxtSvgIcon
+              <NuxtLink to="/">
+                <NuxtSvgIcon
                   :name="item"
                   :use-origin-size="true"
                   class="fill-white"
-              /></NuxtLink>
+                />
+              </NuxtLink>
             </li>
           </ul>
         </div>

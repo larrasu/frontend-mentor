@@ -25,6 +25,7 @@ module.exports = {
       addBase({
         body: {
           fontSize: "18px",
+          overflowX: "hidden",
         },
       });
     }),

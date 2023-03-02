@@ -1,12 +1,12 @@
 <template>
-  <header class="relative w-full px-6 pt-10">
+  <header class="relative w-full">
     <div
       aria-label="Site Header"
-      class="flex items-center justify-between gap-2"
+      class="flex items-center justify-between gap-2 px-6 py-10"
     >
       <NuxtLink to="/">
         <div class="sr-only">Home</div>
-        <img src="~/assets/images/logo.svg" alt="Shortly Logo" />
+        <img src="~/assets/icons/logo.svg" alt="Shortly Logo" />
       </NuxtLink>
       <nav aria-label="Site Navigation" class="md:ml-auto hidden">
         <ul>
@@ -27,7 +27,7 @@
     <div
       @click="showMenu = false"
       v-if="showMenu"
-      class="bg-black/25 absolute left-0 right-0 z-0 w-full h-full mt-0 cursor-pointer"
+      class="fixed left-0 right-0 z-0 w-full h-full mt-0 cursor-pointer"
     ></div>
     <Transition
       enter-active-class="transition duration-200 ease-out"
