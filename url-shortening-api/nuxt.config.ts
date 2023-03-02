@@ -9,7 +9,12 @@ export default defineNuxtConfig({
       link: [{ rel: "favicon", type: "image/png", href: "/favicon-32x32.png" }],
     },
   },
-  modules: ["@nuxtjs/google-fonts", "@nuxtjs/tailwindcss", "nuxt-svg-icons"],
+  modules: [
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/tailwindcss",
+    "nuxt-icon",
+    "nuxt-svg-icons",
+  ],
   googleFonts: {
     families: {
       Poppins: [500, 700],
