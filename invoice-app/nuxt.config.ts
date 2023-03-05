@@ -11,13 +11,20 @@ export default defineNuxtConfig({
   },
   modules: [
     "@formkit/nuxt",
+    "@nuxtjs/color-mode",
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "nuxt-headlessui",
     "nuxt-svg-icons",
   ],
+  runtimeConfig: {
+    mongoUrl: process.env.MONGO_URL,
+  },
 
+  colorMode: {
+    classSuffix: "",
+  },
   googleFonts: {
     families: {
       "League+Spartan": [500, 700],
