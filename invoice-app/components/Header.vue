@@ -13,9 +13,9 @@
       </div>
       <div class="flex items-center divide-x divide-[#494E6E]">
         <div class="px-6 py-5">
-          <button>
+          <button @click="toggleTheme">
             <NuxtSvgIcon
-              name="moon"
+              :name="colorMode.preference == 'dark' ? 'sun' : 'moon'"
               :use-origin-size="true"
               class="fill-accent-300"
             />
@@ -32,3 +32,15 @@
     </div>
   </header>
 </template>
+
+<script setup>
+const colorMode = useColorMode();
+
+const toggleTheme = () => {
+  if (colorMode.preference == "dark" || colorMode.preference == "system") {
+    colorMode.preference = "light";
+  } else {
+    colorMode.preference = "dark";
+  }
+};
+</script>
