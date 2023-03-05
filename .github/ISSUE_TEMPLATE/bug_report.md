@@ -7,11 +7,11 @@ assignees: larrasu
 
 ---
 
-**Describe the bug**
+## :bug: Describe the bug 
 A clear and concise description of what the bug is.
 
-**Expected behavior**
+## :crystal_ball: Expected behavior
 A clear and concise description of what you expected to happen.
 
-**Additional context**
+## :incoming_envelope: Additional context
 Add any other context about the problem here.
