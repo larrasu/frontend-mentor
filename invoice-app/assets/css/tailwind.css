@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --bg-base: #f8f8fb;
+  body {
+    @apply antialiased transition bg-light dark:bg-dark dark:text-white;
   }
 }

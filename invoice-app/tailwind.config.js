@@ -2,17 +2,28 @@
 const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: [],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        primary: "#9277FF",
-        "primary-hover": "#7C5DFA",
-        // secondary: "#1E2139",
-        // "secondary-hover": "#252945",
-        // accent: "#DFE3FA",
-        // "accent-hover": "#888EB0",
-        error: "#EC5757",
-        "error-hover": "#FF9797",
+        primary: {
+          400: "#9277FF",
+          500: "#7C5DFA",
+        },
+        secondary: {
+          400: "#252945",
+          500: "#1E2139",
+        },
+        accent: {
+          100: "#DFE3FA",
+          200: "#888EB0",
+          300: "#7E88C3",
+          400: "#0C0E16",
+        },
+        error: {
+          400: "#FF9797",
+          500: "#EC5757",
+        },
         light: "#f8f8fb",
         dark: "#141625",
       },
