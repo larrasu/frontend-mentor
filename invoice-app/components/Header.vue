@@ -13,15 +13,13 @@
       </div>
       <div class="flex items-center divide-x divide-[#494E6E]">
         <div class="px-6 py-5">
-          <UseDark v-slot="{ isDark, toggleDark }">
-            <button @click="toggleDark">
-              <NuxtSvgIcon
-                :name="isDark ? 'sun' : 'moon'"
-                :use-origin-size="true"
-                class="fill-accent-300"
-              />
-            </button>
-          </UseDark>
+          <button @click="toggleDark()">
+            <NuxtSvgIcon
+              :name="isDark ? 'sun' : 'moon'"
+              :use-origin-size="true"
+              class="fill-accent-300"
+            />
+          </button>
         </div>
         <div class="px-6 py-5">
           <img
@@ -35,4 +33,7 @@
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+</script>
