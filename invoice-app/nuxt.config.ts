@@ -9,12 +9,14 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/png", href: "/favicon-32x32.png" }],
     },
   },
+  imports: { dirs: ["stores"] },
   modules: [
     "@formkit/nuxt",
-    "@nuxtjs/color-mode",
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+    "@vueuse/nuxt",
     "nuxt-headlessui",
     "nuxt-svg-icons",
   ],
@@ -22,13 +24,16 @@ export default defineNuxtConfig({
     mongoUrl: process.env.MONGO_URL,
   },
 
-  colorMode: {
-    classSuffix: "",
-  },
   googleFonts: {
     families: {
       "League+Spartan": [500, 700],
       Poppins: [500, 700],
     },
+  },
+  pinia: {
+    autoImports: ["defineStore", "storeToRefs"],
+  },
+  piniaPersistedstate: {
+    storage: "localStorage",
   },
 });
