@@ -13,13 +13,15 @@
       </div>
       <div class="flex items-center divide-x divide-[#494E6E]">
         <div class="px-6 py-5">
-          <button @click="toggleTheme">
-            <NuxtSvgIcon
-              :name="colorMode.preference == 'dark' ? 'sun' : 'moon'"
-              :use-origin-size="true"
-              class="fill-accent-300"
-            />
-          </button>
+          <UseDark v-slot="{ isDark, toggleDark }">
+            <button @click="toggleDark">
+              <NuxtSvgIcon
+                :name="isDark ? 'sun' : 'moon'"
+                :use-origin-size="true"
+                class="fill-accent-300"
+              />
+            </button>
+          </UseDark>
         </div>
         <div class="px-6 py-5">
           <img
@@ -33,14 +35,4 @@
   </header>
 </template>
 
-<script setup>
-const colorMode = useColorMode();
-
-const toggleTheme = () => {
-  if (colorMode.preference == "dark" || colorMode.preference == "system") {
-    colorMode.preference = "light";
-  } else {
-    colorMode.preference = "dark";
-  }
-};
-</script>
+<script setup></script>
