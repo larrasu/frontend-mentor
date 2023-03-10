@@ -7,10 +7,11 @@
           class="btn-plain btn-sm group flex flex-col items-center gap-1"
           :class="{ active: upvoted }"
         >
-          <Icon
-            name="heroicons:chevron-up-20-solid"
-            class="text-secondary text-lg"
-            :class="{ 'text-white': upvoted }"
+          <NuxtSvgIcon
+            name="arrow-up"
+            :use-origin-size="true"
+            class="stroke-secondary fill-none"
+            :class="{ 'stroke-white fill-none': upvoted }"
           />
           <span>{{ request.upvotes }}</span>
         </button>
@@ -47,6 +48,9 @@ const props = defineProps<{
   isLink: boolean;
 }>();
 
+const NuxtLink = resolveComponent("NuxtLink");
+const { request } = toRefs(props);
+
 const requestStore = useRequestStore();
 const userStore = useUserStore();
 const { currentUser } = storeToRefs(userStore);
@@ -57,11 +61,9 @@ const upvoted = computed(() =>
   request.value.upvotesBy.includes(currentUser.value.username)
 );
 
-const NuxtLink = resolveComponent("NuxtLink");
-
-const { request } = toRefs(props);
-
-const category =
-  request.value.category.charAt(0).toUpperCase() +
-  request.value.category.slice(1);
+const category = computed(
+  () =>
+    request.value.category.charAt(0).toUpperCase() +
+    request.value.category.slice(1)
+);
 </script>

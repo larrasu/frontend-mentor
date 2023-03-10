@@ -2,8 +2,8 @@
   <div class="lg:flex-row md:mx-10 md:mt-14 flex flex-col">
     <Sidebar />
     <section class="md:mt-10">
-      <Header />
-      <main class="md:mt-6 grid gap-4">
+      <Header class="sticky top-0" />
+      <main class="md:mt-6 grid gap-4 mt-8">
         <RequestCard
           v-for="request of sortedRequests"
           :key="request.id"
