@@ -1,4 +1,10 @@
 {
+  "name": "invoice-app",
+  "version": "1.0.0",
+  "author": {
+    "name": "Larra Su",
+    "url": "https://github.com/larrasu"
+  },
   "private": true,
   "scripts": {
     "build": "nuxt build",

@@ -24,6 +24,9 @@ export default defineNuxtConfig({
     mongoUrl: process.env.MONGO_URL,
   },
 
+  headlessui: {
+    prefix: "",
+  },
   googleFonts: {
     families: {
       "League+Spartan": [500, 700],

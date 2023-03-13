@@ -4,7 +4,13 @@ module.exports = {
   content: [],
   darkMode: "class",
   theme: {
+    fontFamily: {
+      sans: ["League Spartan", "sans-serif"],
+    },
     extend: {
+      boxShadow: {
+        base: "0px 10px 10px -10px rgba(72, 84, 159, 0.100397)",
+      },
       colors: {
         primary: {
           400: "#9277FF",
@@ -20,6 +26,9 @@ module.exports = {
           300: "#7E88C3",
           400: "#0C0E16",
         },
+        success: "#33D69F",
+        warning: "#FF8F00",
+        draft: "#373B53",
         error: {
           400: "#FF9797",
           500: "#EC5757",
