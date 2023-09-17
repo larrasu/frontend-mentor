@@ -3,3 +3,7 @@
 starter-code
 README-template.md
 .DS_Store
+
+# Nuxt Files
+solutions/**/node_modules
+solutions/**/.nuxt
