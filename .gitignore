@@ -3,6 +3,10 @@
 starter-code
 README-template.md
 .DS_Store
+solutions/**/.vscode
+solutions/**/design
+solutions/**/starter-code
+solutions/**/style-guide.md
 
 # Nuxt Files
 solutions/**/node_modules
