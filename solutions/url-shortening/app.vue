@@ -16,5 +16,9 @@ useHead({
     <Shortly />
 
     <Features />
+
+    <CTA />
+
+    <Footer />
   </div>
 </template>
