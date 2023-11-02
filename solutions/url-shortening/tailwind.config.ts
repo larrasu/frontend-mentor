@@ -4,6 +4,12 @@ export default {
   content: [],
   theme: {
     extend: {
+      backgroundImage: {
+        "boost-desktop": "url('~/assets/images/bg-boost-desktop.svg')",
+        "boost-mobile": "url('~/assets/images/bg-boost-mobile.svg')",
+        "shorten-desktop": "url('~/assets/images/bg-shorten-desktop.svg')",
+        "shorten-mobile": "url('~/assets/images/bg-shorten-mobile.svg')",
+      },
       colors: {
         primary: { DEFAULT: "#2BD0D0", hover: "#9AE3E3" },
         gray: {
