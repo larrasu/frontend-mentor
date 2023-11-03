@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
     "nuxt-icon",
+    'nuxt-headlessui'
   ],
 
   googleFonts: {
@@ -14,4 +15,7 @@ export default defineNuxtConfig({
       Poppins: [400, 500, 600, 700],
     },
   },
+  headlessui: {
+    prefix: ''
+  }
 });
